@@ -5,29 +5,30 @@ const compChoice = document.querySelector(".comp-choice");
 const you = document.getElementById("you");
 const computer = document.getElementById("computer");
 const ties = document.getElementById("ties");
+const result = document.getElementById("result");
 
-// attach event listener to each button
-// event listener will prompt the computer to pick rock, paper or scissors at random
-
+// sets score counters to 0
 let youScore = 0;
 let computerScore = 0;
 let tiesScore = 0;
 
-
-
 function playGame() {
   const options = ["Rock", "Paper", "Scissors"];
+  //   Picks an option at random
   const index = Math.floor(Math.random() * options.length);
   const computerChoice = options[index];
-  const userChoice = this.id;
-  console.log(computerChoice);
-  compChoice.textContent = computerChoice;
-  console.log(userChoice);
 
+  //   Sets user's choice
+  const userChoice = this.id;
+  //   Displays computer's choice
+  compChoice.textContent = computerChoice;
+
+//   increments scores by 1, depending on who won
   if (userChoice == computerChoice) {
     tiesScore++;
     ties.textContent = "Ties: " + tiesScore;
     console.log(tiesScore);
+    result.textContent = "You tied!";
   } else if (
     (userChoice === "Rock" && computerChoice === "Scissors") ||
     (userChoice === "Paper" && computerChoice === "Rock") ||
@@ -35,14 +36,14 @@ function playGame() {
   ) {
     youScore++;
     you.textContent = "You: " + youScore;
+    result.textContent = "You won!";
   } else {
     computerScore++;
     computer.textContent = "Computer: " + computerScore;
+    result.textContent = "You lost!";
   }
 }
 
-// it will then compare users choice with computers choice
-// score will be increased based on choices
 
 Rock.addEventListener("click", playGame);
 Paper.addEventListener("click", playGame);

@@ -1,0 +1,20 @@
+.score {
+    display: flex;
+    border: dotted;
+}
+
+.game {
+    display: flex;
+    margin: 3%;
+}
+
+#you,
+#computer,
+#ties {
+    margin: 5%;
+}
+
+h1 {
+    text-align: center;
+}
+
